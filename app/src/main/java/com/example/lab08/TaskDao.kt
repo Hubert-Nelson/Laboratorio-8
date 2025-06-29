@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import androidx.room.Delete
 
 @Dao
 interface TaskDao {
@@ -23,5 +24,9 @@ interface TaskDao {
     // Eliminar todas las tareas
     @Query("DELETE FROM tasks")
     suspend fun deleteAllTasks()
+
+    // Eliminar una tarea
+    @Delete
+    suspend fun deleteTask(task: Task)
 }
 
